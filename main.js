@@ -1,6 +1,9 @@
 const slides = document.querySelectorAll(".slide");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
+const autoSlide = true;
+const sliderInterval = 5000;
+let slideCounter;
 
 // Next Function
 function nextSlide() {
@@ -18,8 +21,6 @@ function nextSlide() {
     // Add current class to start
     slides[0].classList.add("current");
   }
-
-  //   current.classList.remove("current");
 }
 
 function prevSlide() {
@@ -34,10 +35,12 @@ function prevSlide() {
   } else {
     slides[slides.length - 1].classList.add("current");
   }
-  //   current.classList.remove("current");
 }
 
 // Event buttons
 
 next.addEventListener("click", nextSlide);
 prev.addEventListener("click", prevSlide);
+
+// Implementing auto sliding
+setInterval(nextSlide, sliderInterval);
