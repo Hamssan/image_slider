@@ -13,10 +13,10 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
   background-color: var(--dark-g);
-  color: white;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
+  color: white;
 }
 
 .slider {
@@ -90,16 +90,67 @@ body {
 
 /* Background Images */
 .slide:first-child {
-  background: url("./images/pexels-jessica-lewis-633483.jpg") no-repeat
+  background: url("./images/pexels-adrianna-calvo-1053771.jpg") no-repeat
     center/cover;
 }
 
 .slide:nth-child(2) {
-  background: url("./images/pexels-oleg-magni-890570.jpg") no-repeat
+  background: url("./images/pexels-cátia-matos-1045534.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(3) {
+  background: url("/images/pexels-digital-buggu-187069.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(4) {
+  background: url("./images/pexels-javon-swaby-3314328.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(5) {
+  background: url("./images/pexels-jessica-lewis-633483.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(6) {
+  background: url("./images/pexels-khairul-nizam-16516.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(7) {
+  background: url("./images/pexels-pixabay-264905.jpg") no-repeat center/cover;
+}
+
+.slide:nth-child(8) {
+  background: url("./images/pexels-roman-odintsov-6898858.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(9) {
+  background: url("./images/pexels-ryutaro-tsukata-5472337.jpg") no-repeat
+    center/cover;
+}
+
+.slide:nth-child(10) {
+  background: url("./images/pexels-skitterphoto-3706.jpg") no-repeat
     center/cover;
 }
 
 .slide:last-child {
-  background: url("./images/pexels-valeria-boltneva-12967.jpg") no-repeat
-    top/cover;
+  background: url("./images/pexels-van-dos-santos-4142511.jpg") no-repeat
+    center/cover;
+}
+
+@media (max-width: 500px) {
+  .slide .content {
+    bottom: -300px;
+    left: 0;
+    width: 100%;
+  }
+
+  .slide.current .content {
+    transform: translateY(-300px);
+  }
 }
