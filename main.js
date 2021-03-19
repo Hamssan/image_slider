@@ -1,8 +1,7 @@
 const slides = document.querySelectorAll(".slide");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
-const autoSlide = true;
-const sliderInterval = 6000;
+const sliderInterval = 9000;
 let intervalCounter;
 
 // Auto sliding
@@ -10,30 +9,29 @@ intervalCounter = setInterval(nextSlide, sliderInterval);
 
 // Left & Right arrow keys handlers
 window.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") {
-    nextSlide();
-    clearInterval(intervalCounter);
-    intervalCounter = setInterval(nextSlide, sliderInterval);
-  }
-  if (e.key === "ArrowLeft") {
-    prevSlide();
-    clearInterval(intervalCounter);
-    intervalCounter = setInterval(nextSlide, sliderInterval);
+  switch (e.key) {
+    case "ArrowRight":
+      nextSlide();
+      autoSliding();
+      break;
+    case "ArrowLeft":
+      prevSlide();
+      autoSliding();
+      break;
   }
 });
 
 // Buttons Handlers
 next.addEventListener("click", () => {
   nextSlide();
-  clearInterval(intervalCounter);
-  intervalCounter = setInterval(nextSlide, sliderInterval);
+  autoSliding();
 });
 prev.addEventListener("click", () => {
   prevSlide();
-  clearInterval(intervalCounter);
-  intervalCounter = setInterval(nextSlide, sliderInterval);
+  autoSliding();
 });
 
+// Move Forwards Function
 function nextSlide() {
   // Get current class
   const current = document.querySelector(".current");
@@ -50,7 +48,7 @@ function nextSlide() {
     slides[0].classList.add("current");
   }
 }
-
+// Move Backwards Function
 function prevSlide() {
   // Get current class
   const current = document.querySelector(".current");
@@ -63,4 +61,9 @@ function prevSlide() {
   } else {
     slides[slides.length - 1].classList.add("current");
   }
+}
+
+function autoSliding() {
+  clearInterval(intervalCounter);
+  intervalCounter = setInterval(nextSlide, sliderInterval);
 }
