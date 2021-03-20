@@ -1,14 +1,18 @@
 const slides = document.querySelectorAll(".slide");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
-const sliderInterval = 9000;
+let sliderInterval = 9000;
 let intervalCounter;
+
+if (screen.width <= 500) {
+  sliderInterval = 5000;
+}
 
 // Auto sliding
 intervalCounter = setInterval(nextSlide, sliderInterval);
 
-// Left & Right arrow keys handlers
-window.addEventListener("keydown", (e) => {
+// Keyboard event
+document.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "ArrowRight":
       nextSlide();
@@ -21,7 +25,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-// Buttons Handlers
+// Mouse Events
 next.addEventListener("click", () => {
   nextSlide();
   autoSliding();
